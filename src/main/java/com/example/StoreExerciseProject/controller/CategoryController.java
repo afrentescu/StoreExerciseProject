@@ -9,8 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import java.util.List;
+
+@RestController
 public class CategoryController {
 
     @Autowired
@@ -23,7 +26,7 @@ public class CategoryController {
     }
 
     @GetMapping("/categoriesList")
-    public ResponseEntity<Category> getAllcateg(){
-        return ResponseEntity.ok(categoryService.getAllCategories());
+    public List<Category> getAllcateg(){
+       return  categoryService.getAllCategories();
     }
 }

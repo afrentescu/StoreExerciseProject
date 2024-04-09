@@ -1,6 +1,7 @@
 package com.example.StoreExerciseProject.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,18 +27,19 @@ public class Product {
     @Column(name = "price", nullable = false)
     private long price;
 
-    @Column(name = "quantity", nullable = false)
-    private int quantity;
+    @Column(name = "description")
+    private String description;
 
    @ManyToOne
+   @JsonBackReference
    @JoinColumn(name = "category_id", nullable = false)
     private  Category productCategory;
 
 
-    public Product(int productId, String name, long price, int quantity) {
+    public Product(int productId, String name, long price, String  description) {
         this.productId = productId;
         this.name = name;
         this.price = price;
-        this.quantity = quantity;
+        this.description = description;
     }
 }

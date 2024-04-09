@@ -6,6 +6,8 @@ import com.example.StoreExerciseProject.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CategoryService {
 
@@ -17,7 +19,7 @@ public class CategoryService {
         return  newCategory;
     }
 
-    public Category getAllCategories(){
-        return (Category) categoryRepository.findAll();
+    public List<Category> getAllCategories(){
+        return  categoryRepository.findAll();
     }
 }
